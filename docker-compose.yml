@@ -1,0 +1,8 @@
+services:
+  wicds_1:
+    build:
+      context: ./context
+      dockerfile: Dockerfile
+    volumes:
+      - ./config:/config
+    tty: true

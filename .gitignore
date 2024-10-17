@@ -1,0 +1,4 @@
+config/
+context/install_files/*.exe
+context/install_files/*.zip
+!.gitkeep
