@@ -47,4 +47,5 @@ ADD install_files /tmp/install_files
 RUN sh /tmp/install_files/install.sh
 
 COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+# ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/env", "bash"]

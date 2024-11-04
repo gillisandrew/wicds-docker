@@ -16,20 +16,20 @@ echo "Display started PID ${xvfbpid}."
 cp $current_dir/*.iss $WINEPREFIX/drive_c/
 
 echo "Running install step 1..."
-step=1 wine "$current_dir/wic_server_1010.exe"  /s /f1"C:\\wic_server_1010.exe.iss" &
-sleep 20 
-# xwd -root -silent | convert xwd:- png:/tmp/wicds/step-1.1.png 
+wine start /unix "$current_dir/wic_server_1010.exe"  /s /f1"C:\\wic_server_1010.exe.iss" &
+sleep 10 
+# xwd -root -silent | convert xwd:- png:/debug/step-1.1.png 
 xdotool key Tab Tab a Return 
-# xwd -root -silent | convert xwd:- png:/tmp/wicds/step-1.2.png 
-wait %step=1
+# xwd -root -silent | convert xwd:- png:/debug/step-1.2.png 
+wait %%
 
 echo "Running install step 2..."
-step=2 wine "$current_dir/wic_server_update_1010_to_1011.exe"  /s /f1"C:\\wic_server_update_1010_to_1011.exe.iss" &
-sleep 20 
-# xwd -root -silent | convert xwd:- png:/tmp/wicds/step-2.1.png 
+wine start /unix "$current_dir/wic_server_update_1010_to_1011.exe"  /s /f1"C:\\wic_server_update_1010_to_1011.exe.iss" &
+sleep 10 
+# xwd -root -silent | convert xwd:- png:/debug/step-2.1.png 
 xdotool key Tab Tab a Return 
-# xwd -root -silent | convert xwd:- png:/tmp/wicds/step-2.2.png 
-wait %step=2
+# xwd -root -silent | convert xwd:- png:/debug/step-2.2.png 
+wait %%
 
 unzip -o "$current_dir/wic_server_patch_beta.zip" -d $WINEPREFIX/drive_c/Program\ Files/WICDS
 

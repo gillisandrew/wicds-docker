@@ -5,4 +5,5 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./config:/config
+      - ./debug:/debug
     tty: true
